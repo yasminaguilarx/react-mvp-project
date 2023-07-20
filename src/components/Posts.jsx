@@ -32,7 +32,7 @@ function Posts({
       ) : (
         <Update
           post={posts.find((post) => post.post_id === updatingPostId)}
-          setUpdatePost={setUpdatePost}
+          setUpdatePost={setUpdatingPostId}
           setPosts={setPosts}
         />
       )}
