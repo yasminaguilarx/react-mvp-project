@@ -1,19 +1,15 @@
-import { useState } from "react";
-import CreateBlog from "./CreateBlog";
-import DeleteBlog from "./DeleteBlog";
-import Update from "./Update";
 function Posts({
   posts,
   handleNewPostClick,
   setPosts,
   setUpdatePost,
+  setShowAllBlogPosts,
   showAllBlogPosts,
-  updatePost,
 }) {
   const [updatingPostId, setUpdatingPostId] = useState(null);
 
   const handleUpdateClick = (postId) => {
-    setUpdatePost(postId);
+    setUpdatingPostId(postId);
   };
 
   return (
@@ -24,13 +20,16 @@ function Posts({
             <h1>{post.post_title}</h1>
             <span>{post.created_at}</span>
             <p>{post.blog_post}</p>
-            <DeleteBlog />
+            <button onClick={() => handleUpdateClick(post.post_id)}>
+              Update
+            </button>
+            <DeleteBlog id={post.post_id} setPosts={setPosts} />
           </div>
         ))
       ) : (
         <Update
           post={posts.find((post) => post.post_id === updatingPostId)}
-          setUpdatePost={setUpdatePost}
+          setUpdatingPostId={setUpdatingPostId}
           setPosts={setPosts}
         />
       )}
@@ -38,7 +37,47 @@ function Posts({
   );
 }
 
-export default Posts;
+// import { useState } from "react";
+// import CreateBlog from "./CreateBlog";
+// import DeleteBlog from "./DeleteBlog";
+// import Update from "./Update";
+// function Posts({
+//   posts,
+//   handleNewPostClick,
+//   setPosts,
+//   setUpdatePost,
+//   showAllBlogPosts,
+//   updatePost,
+// }) {
+//   const [updatingPostId, setUpdatingPostId] = useState(null);
+
+//   const handleUpdateClick = (postId) => {
+//     setUpdatePost(postId);
+//   };
+
+//   return (
+//     <div>
+//       {showAllBlogPosts ? (
+//         posts.map((post) => (
+//           <div className='displayBlog' key={post.post_id}>
+//             <h1>{post.post_title}</h1>
+//             <span>{post.created_at}</span>
+//             <p>{post.blog_post}</p>
+//             <DeleteBlog />
+//           </div>
+//         ))
+//       ) : (
+//         <Update
+//           post={posts.find((post) => post.post_id === updatingPostId)}
+//           setUpdatePost={setUpdatePost}
+//           setPosts={setPosts}
+//         />
+//       )}
+//     </div>
+//   );
+// }
+
+// export default Posts;
 
 // import React from "react";
 // import UpdateBlog from "./UpdateBlog";

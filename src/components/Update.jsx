@@ -63,9 +63,7 @@ function Update({ post, setPosts, setUpdatePost }) {
           value={updatedPost.blog_post}
           onChange={handleChange}
         />
-        <button type='submit' onSubmit={handleUpdate}>
-          Update Post
-        </button>
+        <button type='submit'>Update Post</button>
         <button onClick={() => setUpdatePost(null)}>Cancel</button>
       </form>
     </div>

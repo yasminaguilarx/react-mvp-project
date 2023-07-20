@@ -69,6 +69,7 @@ function App() {
           setPosts={setPosts}
           setUpdatePost={setUpdatePost}
           setShowAllBlogPosts={setShowAllBlogPosts}
+          showAllBlogPosts={showAllBlogPosts}
         />
       )}
     </div>

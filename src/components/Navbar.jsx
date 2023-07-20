@@ -1,11 +1,11 @@
 import HomeBtn from "./HomeBtn";
 import SearchBar from "./SearchBar";
 
-function Navbar({ handleHomeClick, searchedPost, handleCreateNewPost }) {
+function Navbar({ handleHomeClick, handleCreateNewPost }) {
   return (
     <div className='navbar'>
       <HomeBtn handleHomeClick={handleHomeClick} />
-      <SearchBar searchedPost={searchedPost} />
+      <SearchBar />
 
       <button
         className='createPostBtn'

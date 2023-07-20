@@ -35,8 +35,7 @@ function CreateBlog({
 
       if (response.status === 201) {
         const createdNewPost = await response.json();
-        addNewPost(createdNewPost);
-        handleCreateNewPost(); // Set creatingNewPost to false and show all blog posts
+        handleCreateNewPost(createdNewPost); // Set creatingNewPost to false and show all blog posts
         setNewPost({
           post_title: "",
           blog_post: "",

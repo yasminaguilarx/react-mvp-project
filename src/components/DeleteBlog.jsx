@@ -1,4 +1,4 @@
-function DeleteBlog({ id, setPosts, posts }) {
+function DeleteBlog({ id, setPosts }) {
   const handleDeletePost = async (id) => {
     try {
       const response = await fetch(`http://localhost:4000/blog_posts/${id}`, {
