@@ -51,6 +51,8 @@ function App() {
   const handleHomeClick = () => {
     setHome(true);
     setShowAllBlogPosts(true);
+    setCreatingNewPost(false);
+    setUpdatePost(null); // Reset updatingPostId when returning to home page
   };
 
   //fetching data from blog_posts
