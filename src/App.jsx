@@ -53,7 +53,6 @@ function App() {
       <Navbar
         handleHomeClick={handleHomeClick}
         handleCreateNewPost={handleCreateNewPost}
-        searchedPost={searchedPost}
         search={search}
       />
       {creatingNewPost ? (
