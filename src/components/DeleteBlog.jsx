@@ -20,9 +20,9 @@ function DeleteBlog({ id, setPosts }) {
   return (
     <button
       onClick={() => handleDeletePost(id)}
-      style={{ borderRadius: "15px", width: "100px", height: "70px" }}
+      style={{ borderRadius: "15px", width: "100px", height: "50px" }}
     >
-      Delete Post
+      Delete
     </button>
   );
 }
