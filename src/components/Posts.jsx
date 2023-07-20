@@ -12,7 +12,7 @@ function Posts({
   const [updatingPostId, setUpdatingPostId] = useState(null);
 
   const handleUpdateClick = (postId) => {
-    setUpdatingPostId(postId);
+    setUpdatePost(postId);
   };
 
   return (

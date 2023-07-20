@@ -8,7 +8,9 @@ function DeleteBlog({ id, setPosts }) {
       if (!response.ok) {
         console.error("Failed to delete blog post.");
       } else {
-        setPosts();
+        setPosts((prevPosts) =>
+          prevPosts.filter((post) => post.post_id !== id)
+        );
       }
     } catch (error) {
       console.error(error);
