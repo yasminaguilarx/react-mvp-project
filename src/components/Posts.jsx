@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Update from "./Update";
+import DeleteBlog from "./DeleteBlog";
 
 function Posts({
   posts,
