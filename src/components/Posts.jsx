@@ -28,7 +28,7 @@ function Posts({
                 style={{
                   borderRadius: "15px",
                   width: "100px",
-                  height: "100px",
+                  height: "70px",
                 }}
               >
                 Update
