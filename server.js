@@ -188,12 +188,12 @@ app.put("/blog_posts/:id/comments/:id", async (req, res) => {
 //purpose: update a blog post
 app.put("/blog_posts/:id", async (req, res) => {
   const { id } = req.params;
-  const { blog_post } = req.body;
+  const { blog_post, post_title, creator, created_at } = req.body;
 
   try {
     const result = await pool.query(
-      `UPDATE blog_posts SET blog_post = $1 WHERE post_id = $2 RETURNING *`,
-      [blog_post, id]
+      `UPDATE blog_posts SET (post_title = $1, blog_post = $2, creator = $3, created_at = $4)  WHERE post_id = $5 RETURNING *`,
+      [blog_post, id, post_title, creator, created_at]
     );
     res
       .setHeader("Content-Type", "application/json")
