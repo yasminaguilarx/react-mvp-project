@@ -1,25 +1,15 @@
 import HomeBtn from "./HomeBtn";
 import SearchBar from "./SearchBar";
 
-function Navbar({
-  handleNewPostClick,
-  handleHomeClick,
-  searchedPost,
-  setNewPost,
-}) {
-  const handleClick = (e) => {
-    e.preventDefault();
-    handleNewPostClick();
-  };
-
+function Navbar({ handleHomeClick, searchedPost, handleCreateNewPost }) {
   return (
     <div className='navbar'>
       <HomeBtn handleHomeClick={handleHomeClick} />
-      <SearchBar searchedPost={searchedPost} setNewPost={setNewPost} />
+      <SearchBar searchedPost={searchedPost} />
 
       <button
         className='createPostBtn'
-        onClick={handleClick}
+        onClick={handleCreateNewPost}
         style={{ borderRadius: "15px" }}
       >
         Create Post

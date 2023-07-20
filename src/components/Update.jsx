@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Update({ post, onUpdate, setUpdatingPostId }) {
+function Update({ post, setPosts, setUpdatePost }) {
   const [updatedPost, setUpdatedPost] = useState({
     post_title: post?.post_title || "",
     blog_post: post?.blog_post || "",
@@ -35,7 +35,14 @@ function Update({ post, onUpdate, setUpdatingPostId }) {
         console.error("Failed to update blog post.");
       } else {
         // Refresh the post list after successful update
-        setUpdatingPostId(null);
+        setUpdatePost(null);
+        setPosts((prevPosts) =>
+          prevPosts.map((prevPost) =>
+            prevPost.post_id === post.post_id
+              ? { ...prevPost, ...updatedPost }
+              : prevPost
+          )
+        );
       }
     } catch (error) {
       console.error(error);
@@ -56,8 +63,10 @@ function Update({ post, onUpdate, setUpdatingPostId }) {
           value={updatedPost.blog_post}
           onChange={handleChange}
         />
-        <button type='submit'>Update Post</button>
-        <button onClick={() => setUpdatingPostId(null)}>Cancel</button>
+        <button type='submit' onSubmit={handleUpdate}>
+          Update Post
+        </button>
+        <button onClick={() => setUpdatePost(null)}>Cancel</button>
       </form>
     </div>
   );
