@@ -32,13 +32,15 @@ function Posts({
       ) : (
         <Update
           post={posts.find((post) => post.post_id === updatingPostId)}
-          setUpdatePost={setUpdatingPostId}
+          setUpdatePost={setUpdatePost}
           setPosts={setPosts}
         />
       )}
     </div>
   );
 }
+
+export default Posts;
 
 // import { useState } from "react";
 // import CreateBlog from "./CreateBlog";
@@ -109,5 +111,3 @@ function Posts({
 //     </div>
 //   );
 // }
-
-export default Posts;
