@@ -8,7 +8,7 @@ import "./App.css";
 
 function App() {
   const [posts, setPosts] = useState([]);
-  const [showAllBlogPosts, setShowAllBlogPosts] = useState(false);
+  const [showAllBlogPosts, setShowAllBlogPosts] = useState(true);
   const [creatingNewPost, setCreatingNewPost] = useState(false);
   const [home, setHome] = useState(true);
   const [search, setSearch] = useState([]);
