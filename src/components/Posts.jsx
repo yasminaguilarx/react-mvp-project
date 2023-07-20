@@ -4,7 +4,6 @@ import DeleteBlog from "./DeleteBlog";
 
 function Posts({
   posts,
-  handleNewPostClick,
   setPosts,
   setUpdatePost,
   setShowAllBlogPosts,
@@ -33,7 +32,7 @@ function Posts({
       ) : (
         <Update
           post={posts.find((post) => post.post_id === updatingPostId)}
-          setUpdatingPostId={setUpdatingPostId}
+          setUpdatePost={setUpdatePost}
           setPosts={setPosts}
         />
       )}

@@ -1,11 +1,6 @@
 import { useState } from "react";
 
-function CreateBlog({
-  handleCreateNewPost,
-  addNewPost,
-  setPosts,
-  setShowAllBlogPosts,
-}) {
+function CreateBlog({ handleCreateNewPost, setPosts, setShowAllBlogPosts }) {
   const [newPost, setNewPost] = useState({
     post_title: "",
     blog_post: "",
@@ -35,7 +30,8 @@ function CreateBlog({
 
       if (response.status === 201) {
         const createdNewPost = await response.json();
-        handleCreateNewPost(createdNewPost); // Set creatingNewPost to false and show all blog posts
+        setPosts((prevPosts) => [createdNewPost, ...prevPosts]);
+        handleCreateNewPost();
         setNewPost({
           post_title: "",
           blog_post: "",

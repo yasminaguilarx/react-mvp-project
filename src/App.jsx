@@ -51,7 +51,7 @@ function App() {
   return (
     <div className='app'>
       <Navbar
-        handleHomeClick={handleHomeClick}
+        handleHomeClick={() => setShowAllBlogPosts(true)}
         handleCreateNewPost={handleCreateNewPost}
         search={search}
       />
@@ -65,7 +65,6 @@ function App() {
       ) : (
         <Posts
           posts={posts}
-          handleNewPostClick={() => setCreatingNewPost(true)}
           setPosts={setPosts}
           setUpdatePost={setUpdatePost}
           setShowAllBlogPosts={setShowAllBlogPosts}
