@@ -23,17 +23,18 @@ function Posts({
             <h1>{post.post_title}</h1>
             <span>{post.created_at}</span>
             <p>{post.blog_post}</p>
-            <Update
-              id={post.post_id}
-              post={posts}
-              setUpdatePost={setUpdatePost}
-              setPosts={setPosts}
-            />
+            <button onClick={() => handleUpdateClick(post.post_id)}>
+              Update
+            </button>
             <DeleteBlog id={post.post_id} setPosts={setPosts} />
           </div>
         ))
       ) : (
-        <Posts showAllBlogPosts={showAllBlogPosts} />
+        <Update
+          post={posts.find((post) => post.post_id === updatingPostId)}
+          setUpdatePost={setUpdatePost}
+          setPosts={setPosts}
+        />
       )}
     </div>
   );
