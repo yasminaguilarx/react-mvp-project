@@ -22,7 +22,6 @@ function App() {
 
   //return home page
   const handleHomeClick = () => {
-    setHome(true);
     setShowAllBlogPosts(true);
     setCreatingNewPost(false);
     setUpdatePost(null); // Reset updatingPostId when returning to home page
@@ -51,7 +50,7 @@ function App() {
   return (
     <div className='app'>
       <Navbar
-        handleHomeClick={() => setShowAllBlogPosts(true)}
+        handleHomeClick={handleHomeClick}
         handleCreateNewPost={handleCreateNewPost}
         search={search}
       />

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Update({ post, setPosts, setUpdatePost }) {
+function Update({ post, setPosts, setUpdatePost, id }) {
   const [updatedPost, setUpdatedPost] = useState({
     post_title: post?.post_title || "",
     blog_post: post?.blog_post || "",
