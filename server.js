@@ -112,6 +112,25 @@ app.get("/blog_posts/:id/comments", async (req, res) => {
   }
 });
 
+//search functionality
+app.get("/blog_posts/search", async (req, res) => {
+  const searchTerm = req.query.term;
+  try {
+    const result = await pool.query(
+      "SELECT * FROM blog_posts WHERE post_title LIKE $1",
+      [`%${searchTerm}%`]
+    );
+    if (result.rowCount === 0) {
+      res.status(404).send("No Post Found: Search");
+    } else {
+      res.status(200).json(result.rows);
+    }
+  } catch (error) {
+    console.error("Error while searching blog posts!", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 //purpose: get specific blog
 app.get("/blog_posts/:id", async (req, res) => {
   try {

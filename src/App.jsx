@@ -10,7 +10,6 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [showAllBlogPosts, setShowAllBlogPosts] = useState(true);
   const [creatingNewPost, setCreatingNewPost] = useState(false);
-  const [home, setHome] = useState(true);
   const [search, setSearch] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [updatePost, setUpdatePost] = useState(null);
@@ -25,6 +24,22 @@ function App() {
     setShowAllBlogPosts(true);
     setCreatingNewPost(false);
     setUpdatePost(null); // Reset updatingPostId when returning to home page
+  };
+
+  //handle search functionality
+  const handleSearch = async (searchTerm) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(
+        `http://localhost:4000/blog_posts/search?term=${searchTerm}`
+      );
+      const data = await response.json();
+      setPosts(data);
+      setIsLoading(false);
+    } catch (error) {
+      console.error("Unable to fetch search results!", error);
+      setIsLoading(false);
+    }
   };
 
   //fetching data from blog_posts
@@ -52,7 +67,7 @@ function App() {
       <Navbar
         handleHomeClick={handleHomeClick}
         handleCreateNewPost={handleCreateNewPost}
-        search={search}
+        search={handleSearch}
       />
       {creatingNewPost ? (
         <CreateBlog

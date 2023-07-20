@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../App.css";
 
-function SearchBar({ searchedPost }) {
+function SearchBar({ search }) {
   const [searchInput, setSearchInput] = useState("");
 
   let inputHandler = (e) => {
@@ -10,7 +10,7 @@ function SearchBar({ searchedPost }) {
   };
 
   const handleSearch = () => {
-    searchedPost(searchInput.toLowerCase());
+    search(searchInput);
   };
 
   return (
