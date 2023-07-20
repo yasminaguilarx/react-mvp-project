@@ -51,7 +51,6 @@ function App() {
   const handleHomeClick = () => {
     setHome(true);
     setShowAllBlogPosts(true);
-    setCreatingNewPost(false);
   };
 
   //fetching data from blog_posts
