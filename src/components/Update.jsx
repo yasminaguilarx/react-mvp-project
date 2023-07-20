@@ -20,16 +20,13 @@ function Update({ post, setPosts, setUpdatePost, id }) {
     e.preventDefault();
 
     try {
-      const response = await fetch(
-        `http://localhost:4000/blog_posts/${post.post_id}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(updatedPost),
-        }
-      );
+      const response = await fetch(`http://localhost:4000/blog_posts/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedPost),
+      });
 
       if (!response.ok) {
         console.error("Failed to update blog post.");
@@ -38,9 +35,7 @@ function Update({ post, setPosts, setUpdatePost, id }) {
         setUpdatePost(null);
         setPosts((prevPosts) =>
           prevPosts.map((prevPost) =>
-            prevPost.post_id === post.post_id
-              ? { ...prevPost, ...updatedPost }
-              : prevPost
+            prevPost.post_id === id ? { ...prevPost, ...updatedPost } : prevPost
           )
         );
       }

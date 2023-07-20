@@ -68,6 +68,7 @@ function App() {
           setUpdatePost={setUpdatePost}
           setShowAllBlogPosts={setShowAllBlogPosts}
           showAllBlogPosts={showAllBlogPosts}
+          handleNewPostClick={() => setCreatingNewPost(true)}
         />
       )}
     </div>
