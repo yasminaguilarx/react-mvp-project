@@ -25,15 +25,15 @@ function Posts({
               <p>{post.blog_post}</p>
               <button
                 onClick={() => handleUpdateClick(post.post_id)}
-                style={{ borderRadius: "15px", width: "60px", height: "60px" }}
+                style={{
+                  borderRadius: "15px",
+                  width: "100px",
+                  height: "100px",
+                }}
               >
                 Update
               </button>
-              <DeleteBlog
-                id={post.post_id}
-                setPosts={setPosts}
-                style={{ borderRadius: "15px", width: "60px", height: "60px" }}
-              />
+              <DeleteBlog id={post.post_id} setPosts={setPosts} />
             </div>
           ))
         : updatingPostId && (

@@ -17,7 +17,14 @@ function DeleteBlog({ id, setPosts }) {
     }
   };
 
-  return <button onClick={() => handleDeletePost(id)}>Delete Post</button>;
+  return (
+    <button
+      onClick={() => handleDeletePost(id)}
+      style={{ borderRadius: "15px", width: "100px", height: "100px" }}
+    >
+      Delete Post
+    </button>
+  );
 }
 
 export default DeleteBlog;
