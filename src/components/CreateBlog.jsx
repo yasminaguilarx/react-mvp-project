@@ -38,6 +38,7 @@ function CreateBlog({ handleCreateNewPost, setPosts, setShowAllBlogPosts }) {
           creator: "",
           created_at: "",
         });
+        setShowAllBlogPosts(true);
       } else {
         console.error("Failed to create blog post.");
       }

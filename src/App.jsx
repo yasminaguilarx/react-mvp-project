@@ -84,6 +84,7 @@ function App() {
           setShowAllBlogPosts={setShowAllBlogPosts}
           showAllBlogPosts={showAllBlogPosts}
           handleNewPostClick={() => setCreatingNewPost(true)}
+          handleHomeClick={handleHomeClick}
         />
       )}
     </div>

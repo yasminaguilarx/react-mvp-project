@@ -12,14 +12,15 @@ function Posts({
   const [updatingPostId, setUpdatingPostId] = useState(null);
 
   const handleUpdateClick = (postId) => {
+    console.log("Update button clicked for postId:", postId);
     setUpdatingPostId(postId);
   };
 
   return (
     <div>
       {showAllBlogPosts
-        ? posts.map((post) => (
-            <div className='displayBlog' key={post.post_id}>
+        ? posts.map((post, index) => (
+            <div className='displayBlog' key={index}>
               <h1>{post.post_title}</h1>
               <span>{post.created_at}</span>
               <p>{post.blog_post}</p>
