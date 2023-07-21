@@ -7,13 +7,14 @@ function Posts({
   setPosts,
   setUpdatePost,
   setShowAllBlogPosts,
+  handleCreateNewPost,
   showAllBlogPosts,
 }) {
   const [updatingPostId, setUpdatingPostId] = useState(null);
 
-  const handleUpdateClick = (postId) => {
-    console.log("Update button clicked for postId:", postId);
-    setUpdatingPostId(postId);
+  const handleUpdateClick = (id) => {
+    setUpdatingPostId(id);
+    handleCreateNewPost();
   };
 
   return (

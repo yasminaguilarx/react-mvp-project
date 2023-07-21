@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Update({ post, setPosts, setUpdatePost, id, handleHomeClick }) {
+function Update({ post, setPosts, setUpdatePost, id, handleCreateNewPost }) {
   const [updatedPost, setUpdatedPost] = useState({
     post_title: post?.post_title || "",
     blog_post: post?.blog_post || "",
@@ -35,7 +35,7 @@ function Update({ post, setPosts, setUpdatePost, id, handleHomeClick }) {
       } else {
         setUpdatePost(null);
         setPosts((prevPosts) =>
-          prevPosts.filter((prevPost) =>
+          prevPosts.map((prevPost) =>
             prevPost.post_id === id ? { ...prevPost, ...updatedPost } : prevPost
           )
         );
